@@ -28,7 +28,8 @@ function sayWarning(text) {
   } catch (err) {}
 }
 
-module.exports = function warnOutdated(text) {
+module.exports = function warnOutdated() {
+  const text = 'Your node_modules folder is out of date!';
   const modulesTime = getTime('./node_modules');
   if (getTime('./package.json') > modulesTime || getTime('./npm-shrinkwrap.json') > modulesTime) {
     printWarning(text);
